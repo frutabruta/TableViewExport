@@ -31,7 +31,8 @@ void TableViewExport::exportToCsv(QString cesta, QAbstractItemModel *model)
         QStringList hlavicka;
         for(int i=0;i<model->columnCount();i++)
         {
-            hlavicka<<QString("\""+model->headerData(i,Qt::Horizontal,Qt::DisplayRole).toString()+"\"");
+
+            hlavicka<<QString("\""+model->headerData(i,Qt::Horizontal,Qt::DisplayRole).toString().replace("\n"," ")+"\"");
 
         }
         out<<hlavicka.join(";")<<"\r\n";
