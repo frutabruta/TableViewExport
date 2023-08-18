@@ -9,10 +9,10 @@
 #include <QFileDialog>
 
 enum class ExportFileType
-  {
-     Csv,
-     Xml
-  };
+{
+    Csv,
+    Xml
+};
 
 class TableViewExport: QObject
 {

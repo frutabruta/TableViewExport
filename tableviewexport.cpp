@@ -5,8 +5,6 @@ TableViewExport::TableViewExport()
 
 }
 
-
-
 void TableViewExport::exportToCsv(QString cesta, QAbstractItemModel *model)
 {
     qDebug()<<Q_FUNC_INFO;
@@ -22,11 +20,6 @@ void TableViewExport::exportToCsv(QString cesta, QAbstractItemModel *model)
         qDebug()<<"soubor se povedlo otevrit";
         QTextStream out(&data);
         out.setEncoding(QStringConverter::System);
-        //out << "Result: " << qSetFieldWidth(10) << left << 3.14 << 2.7;
-        // writes "Result: 3.14      2.7       "
-
-
-        // auto model=ui->tableView_vysledkyDetail->model();
 
         QStringList hlavicka;
         for(int i=0;i<model->columnCount();i++)
@@ -51,15 +44,11 @@ void TableViewExport::exportToCsv(QString cesta, QAbstractItemModel *model)
             //   textData += QLatin1Char('\n');
         }
 
-
     }
     else
     {
         qDebug()<<"soubor se nepovedlo otevrit";
     }
-
-
-
 
 }
 
@@ -84,7 +73,7 @@ void TableViewExport::selectExportPath(ExportFileType exportType, QAbstractItemM
     case ExportFileType::Csv:
         fileExtension="csv";
         fileTypeDescription="CSV soubor ";
-    break;
+        break;
     case ExportFileType::Xml:
         fileExtension="xml";
         fileTypeDescription="XML soubor ";
